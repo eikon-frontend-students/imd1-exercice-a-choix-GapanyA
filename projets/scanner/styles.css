@@ -7,7 +7,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #0c0623;
   /* color: #e00070; */
-  /* background-image: url(../../images/Capture\ d’écran\ 2025-05-19\ à\ 09.50.00.png); */
+  /* background-image: url(images/Capture\ d’écran\ 2025-05-19\ à\ 09.50.00.png); */
   /* background-size: cover; */
   /* background-repeat: no-repeat; */
 }
@@ -21,7 +21,7 @@ main {
 }
 
 .video-container {
-  background-image: url("../../images/camera.png");
+  background-image: url("images/camera.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
