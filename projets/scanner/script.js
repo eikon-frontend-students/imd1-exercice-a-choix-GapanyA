@@ -11,17 +11,33 @@ function resetScanner() {
   reader.resume();
 }
 
+const listOfURLs = [
+  "https://pointerpointer.com",
+  "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+  "https://findtheinvisiblecow.com",
+  "https://procatinator.com",
+  "https://www.cornify.com",
+];
+
 function onScanSuccess(decodedText, decodedResult) {
   console.log(`Scan result: ${decodedText}`, decodedResult);
   scanResult.textContent = decodedText;
   body.classList.add("scanned");
+  const randomURL =
+    listOfURLs[
+      Math.floor(Math.random() * listOfURLs.length)
+    ];
+  window.location.href = randomURL;
   reader.pause();
 }
 
 function startCamera(cameraId) {
   if (cameraId === "") return;
 
-  if (reader.getState() === Html5QrcodeScannerState.SCANNING) {
+  if (
+    reader.getState() === Html5QrcodeScannerState.SCANNING
+  ) {
     reader.stop();
   }
 
@@ -50,8 +66,11 @@ Html5Qrcode.getCameras()
      * { id: "id", label: "label" }
      */
     if (devices && devices.length) {
-      const cameraSelect = document.querySelector("#camera-select");
-      const defaultOption = document.createElement("option");
+      const cameraSelect = document.querySelector(
+        "#camera-select"
+      );
+      const defaultOption =
+        document.createElement("option");
       defaultOption.value = "";
       defaultOption.textContent = "Choisissez une caméra";
       cameraSelect.appendChild(defaultOption);
@@ -64,7 +83,8 @@ Html5Qrcode.getCameras()
       });
 
       // Set the default camera if available
-      const savedCameraId = localStorage.getItem("cameraId");
+      const savedCameraId =
+        localStorage.getItem("cameraId");
       if (savedCameraId) {
         cameraSelect.value = savedCameraId;
         startCamera(savedCameraId);
